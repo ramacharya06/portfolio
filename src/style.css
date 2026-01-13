@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+
+@custom-variant dark (&:where(.my-app-dark, .my-app-dark *));
+
+html body{
+  margin:0;
+  padding:0;
+  font-family: "Rubik", sans-serif;
+}
