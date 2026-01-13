@@ -1,5 +1,5 @@
 <script setup>
-import Button from 'primevue/button';
+import Button from 'primevue/button'
 
 defineProps({
   github: {
@@ -18,14 +18,18 @@ defineProps({
     type: String,
     default: 'w-full',
   },
-});
+  techstack: {
+    type: Array,
+    default: () => [],
+  },
+})
 </script>
 
 <template>
-  <div class="m-4 rounded-xl border-4 border-dashed
-           border-zinc-600 hover:border-zinc-800
-           dark:border-zinc-400 dark:hover:border-zinc-200 p-4 pb-10" :class="[widthClass, heightClass]">
-    <div v-if="$slots.image" class="mb-3 h-4/10 flex justify-center align-center">
+  <div
+    class="m-1 mt-4 rounded-xl border-2 border-dashed border-zinc-600 hover:border-zinc-800 dark:border-zinc-400 dark:hover:border-zinc-200 p-4 pb-10 @max-md:w-70 @max-sm:w-60 card"
+    :class="[widthClass, heightClass]">
+    <div v-if="$slots.image" class="mb-3 h-4/10 flex justify-center items-center">
       <slot name="image" />
     </div>
 
@@ -33,34 +37,40 @@ defineProps({
       <slot name="title" class="h-1/10" />
     </div>
 
-    <div v-if="$slots.description" class="mb-3 text-zinc-700 dark:text-zinc-300">
+    <div v-if="$slots.description" class="mb-3 text-zinc-700 dark:text-zinc-300 h-24 overflow-y-auto">
       <slot name="description" class="h-2/10" />
     </div>
 
-    <div v-if="$slots.techstack" class="mb-4 flex flex-wrap gap-2 justify-center">
-      <slot name="techstack" class="h-1/10" />
+    <div v-if="$slots.techstack || techstack.length" class="mb-4 flex flex-nowrap overflow-x-auto gap-2 pb-2 w-full">
+      <slot name="techstack">
+        <span v-for="tech in techstack" :key="tech"
+          class="px-2 py-1 text-sm rounded bg-zinc-200 dark:bg-zinc-700 whitespace-nowrap">
+          {{ tech }}
+        </span>
+      </slot>
     </div>
-    <div class="flex text-center h-2/15">
+    <div class="flex h-1/15 justify-evenly">
       <slot name="github-link">
-        <a :href="github" target="_blank" rel="noopener" class="w-full flex">
-          <Button label="Source Code" class="w-[90%] p-3 m-2 text-[1.5em]
-               bg-zinc-600 hover:bg-zinc-800
-               dark:bg-zinc-400 dark:hover:bg-zinc-100
-               border-black dark:border-gray-600
-               text-white dark:text-black" />
+        <a :href="github" target="_blank" rel="noopener" class="p-1">
+          <Button><i class="pi pi-github"></i>Source Code</Button>
         </a>
       </slot>
       <slot name="live-link">
-        <a :href="live" v-if="live" target="_blank" rel="noopener">
-          <Button class="w-[90%] p-3 m-2 text-[1.5em]
-             bg-zinc-600 hover:bg-zinc-800
-             dark:bg-zinc-400 dark:hover:bg-zinc-100
-             border-black dark:border-gray-600
-             text-white dark:text-black h-11"><i class="pi pi-globe text-[1em]"></i>
-            <p class="text-[1.1em] font-semibold">Live</p>
-          </Button>
+        <a :href="live" v-if="live" target="_blank" rel="noopener" class="p-1">
+          <Button><i class="pi pi-globe"></i>Live</Button>
         </a>
       </slot>
     </div>
   </div>
 </template>
+
+<style>
+.card img {
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+</style>
