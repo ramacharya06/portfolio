@@ -7,9 +7,12 @@ import { ref, onMounted } from 'vue'
 const logo = '/logo.png'
 
 const items = ref([
-  { label: 'Projects', icon: 'pi pi-github', route: '/projects' },
-  { label: 'Work', icon: 'pi pi-briefcase', route: '/work' },
-  { label: 'Techstack', icon: 'pi pi-microchip-ai', route: '/techstack' },
+  //   { label: 'Projects', icon: 'pi pi-github', route: '/projects' },
+  // { label: 'Work', icon: 'pi pi-briefcase', route: '/work' },
+  // { label: 'Techstack', icon: 'pi pi-microchip-ai', route: '/techstack' },
+  { label: 'Projects', icon: 'pi pi-github', route: '#projects' },
+  { label: 'Work', icon: 'pi pi-briefcase', route: '#work' },
+  { label: 'Connect', icon: 'pi pi-envelope', route: '#connect' },
 ])
 
 const isDark = ref(false)
@@ -37,7 +40,11 @@ onMounted(() => {
         </router-link>
       </template>
       <template #item="{ item, props, hasSubmenu }">
-        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+        <a v-if="item.route && item.route.startsWith('#')" v-ripple :href="item.route" v-bind="props.action">
+          <span :class="item.icon" />
+          <span>{{ item.label }}</span>
+        </a>
+        <router-link v-else-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
           <a v-ripple :href="href" v-bind="props.action" @click="navigate">
             <span :class="item.icon" />
             <span>{{ item.label }}</span>

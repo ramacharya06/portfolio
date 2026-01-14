@@ -28,7 +28,7 @@ defineProps({
 <template>
   <div
     class="m-1 mt-4 rounded-xl border-2 border-dashed border-zinc-600 hover:border-zinc-800 dark:border-zinc-400 dark:hover:border-zinc-200 p-4 pb-10 @max-md:w-70 @max-sm:w-60 card"
-    :class="[widthClass, heightClass]">
+    :class="[widthClass]">
     <div v-if="$slots.image" class="mb-3 h-4/10 flex justify-center items-center">
       <slot name="image" />
     </div>
@@ -52,12 +52,12 @@ defineProps({
     <div class="flex h-1/15 justify-evenly">
       <slot name="github-link">
         <a :href="github" target="_blank" rel="noopener" class="p-1">
-          <Button><i class="pi pi-github"></i>Source Code</Button>
+          <Button class="hover:scale-[1.05]"><i class="pi pi-github"></i>Source Code</Button>
         </a>
       </slot>
       <slot name="live-link">
         <a :href="live" v-if="live" target="_blank" rel="noopener" class="p-1">
-          <Button><i class="pi pi-globe"></i>Live</Button>
+          <Button class="hover:scale-[1.05]"><i class="pi pi-globe"></i>Live</Button>
         </a>
       </slot>
     </div>
