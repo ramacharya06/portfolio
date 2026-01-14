@@ -27,7 +27,7 @@ defineProps({
 
 <template>
     <div
-        class="m-1 mt-4 rounded-xl border-2 border-dashed border-zinc-600 hover:border-zinc-800 dark:border-zinc-400 dark:hover:border-zinc-200 p-4 pb-10 @max-md:w-70 @max-sm:w-60 card"
+        class="m-1 mt-4 rounded-xl border-2 border-dashed border-zinc-600 hover:border-zinc-800 dark:border-zinc-400 dark:hover:border-zinc-200 p-4 pb-10 @max-md:w-70 @max-sm:w-60 card min-w-[250px]"
         :class="[widthClass]"
     >
         <div v-if="$slots.image" class="mb-3 h-4/10 flex justify-center items-center">

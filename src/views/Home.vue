@@ -212,7 +212,7 @@ let education = [
         <!-- Project -->
         <div id="projects" class="flex justify-center items-center m-8 flex-col scroll-mt-28">
             <Title label="My Projects" />
-            <div class="flex overflow-x-scroll w-full @max-lg:flex-col jusify-center items-center">
+            <div class="flex @md:overflow-x-scroll w-full @max-lg:flex-col jusify-center items-center">
                 <Card
                     v-for="card in projectcards"
                     :key="card.label"
