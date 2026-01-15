@@ -34,7 +34,7 @@ const isExpanded = ref(false)
 
 <template>
     <div
-        class="m-1 mt-4 rounded-xl border-dashed border-zinc-600 hover:border-zinc-800 dark:border-zinc-400 dark:hover:border-zinc-200 p-4 card md:flex-row gap-6 w-full cursor-pointer @container"
+        class="m-1 mt-4 rounded-xl border-dashed border-zinc-600 hover:border-zinc-800 dark:border-zinc-400 dark:hover:border-zinc-200 p-4 card md:flex-row gap-6 w-full cursor-pointer @container min-w-[300px] m-2"
         @click="isExpanded = !isExpanded"
         :class="[widthClass]"
     >
