@@ -10,10 +10,6 @@ defineProps({
         type: String,
         required: false,
     },
-    label: {
-        type: String,
-        required: true,
-    },
     widthClass: {
         type: String,
         default: 'w-full',
@@ -78,7 +74,7 @@ defineProps({
     </div>
 </template>
 
-<style>
+<style scoped>
 .card img {
     transition: transform 0.3s ease;
     transform-origin: center center;

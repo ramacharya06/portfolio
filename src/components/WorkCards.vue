@@ -3,14 +3,6 @@ import Button from 'primevue/button'
 import { ref } from 'vue'
 
 defineProps({
-    github: {
-        type: String,
-        required: false,
-    },
-    live: {
-        type: String,
-        required: false,
-    },
     label: {
         type: String,
         required: true,
@@ -27,6 +19,7 @@ defineProps({
         type: String,
         default: '',
     },
+    
 })
 
 const isExpanded = ref(false)

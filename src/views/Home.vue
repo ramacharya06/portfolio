@@ -1,154 +1,56 @@
 <script setup>
 import Avatar from 'primevue/avatar'
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import Button from 'primevue/button'
-import Card from '../components/projectCards.vue'
+import Card from '../components/ProjectCards.vue'
 import WCard from '../components/WorkCards.vue'
 import Title from '../components/Title.vue'
-import ECard from '../components/eduCards.vue'
-const logo = '/logo.png'
+import ECard from '../components/EduCards.vue'
+import {
+  PROFILE_HERO_TITLES,
+  PROFILE_DESCRIPTION,
+  CONTACT_LINKS,
+  PROJECT_CARDS,
+  TECH_STACK,
+  WORK_CARDS,
+  CP_ACCOUNTS,
+  EDUCATION,
+} from '../data/constants'
+import { useTheme } from '../composables/useTheme'
 
-// const logo = '';
+const { isDark } = useTheme()
 
-let arr = ['Python Dev', 'AI Enthusiast', 'ML Enthusiast', 'Web Developer']
-const text = ref('Python Dev')
-let i = 0
-setInterval(() => {
-  text.value = arr[i]
-  i++
-  if (i == arr.length) {
-    i = 0
-  }
-}, 2000)
+const logo = computed(() => (isDark.value ? '/logo-dark.png' : '/logo.png'))
 
-let description = ref(
-  'I build interactive web applications using <b>Flask</b>, <b>FastAPI</b>, <b>Django</b>, <b>Vue.js</b>, and <b>PostgreSQL</b>, with a strong focus on clean UI and well-structured backends. I work across the stack, from <b>CSS to API design</b> and <b>async systems</b> to <b>deployment</b> and <b>real-world usage</b>.<br><br>',
-)
+const text = ref(PROFILE_HERO_TITLES[0])
+let intervalId = null
 
-let contactLinks = [
-  { label: 'GitHub', icon: 'pi pi-github', route: 'https://github.com/ramacharya06' },
-  { label: 'LinkedIn', icon: 'pi pi-linkedin', route: 'https://linkedin.com/in/ramacharya06' },
-  { label: 'X', icon: 'pi pi-twitter', route: 'https://x.com/ramacharya06' },
-  { label: 'Email', icon: 'pi pi-envelope', route: 'mailto:rama14062006@gmail.com' },
-]
+onMounted(() => {
+  let i = 0
+  intervalId = setInterval(() => {
+    i = (i + 1) % PROFILE_HERO_TITLES.length
+    text.value = PROFILE_HERO_TITLES[i]
+  }, 2000)
+})
 
-let projectcards = [
-  {
-    github: 'https://github.com/ramacharya06/credit-risk-predictor',
-    live: 'https://credit-risk-predictor-lrhp.streamlit.app/',
-    title: 'Credit Risk Predictor',
-    widthClass: 'w-100',
-    image: '/credit_risk_prediction_system.png',
-    description:
-      'A machine learning application that predicts credit risk and loan default probability using Random Forest Classifier.',
-    techstack: [
-      'Python',
-      'Jupyter Notebook',
-      'Streamlit',
-      'Pandas',
-      'Numpy',
-      'Scikit-learn',
-      'Matplotlib',
-    ],
-  },
-  {
-    github: 'https://github.com/ramacharya06/SaveIt',
-    title: 'Save It',
-    widthClass: 'w-100',
-    image: '/save-it.png',
-    description:
-      'A versatile utility that allows you to download images and other files from the internet. It provides both a Command-Line Interface (CLI) and a modern Web Interface.',
-    techstack: ['Python', 'FastAPI', 'Vue.js', 'Html', 'CSS', 'JS'],
-  },
-]
+onUnmounted(() => {
+  if (intervalId) clearInterval(intervalId)
+})
 
-let techstack = {
-  python: { name: 'Python', icon: '/python.png' },
-  fastapi: { name: 'FastAPI', icon: '/fastapi.png' },
-  vue: { name: 'Vue.js', icon: '/vue.png' },
-  html: { name: 'Html', icon: '/html.png' },
-  css: { name: 'CSS', icon: '/css.png' },
-  js: { name: 'JavaScript', icon: '/js.png' },
-  cpp: { name: 'C++', icon: '/cpp.png' },
-  azure: { name: 'Microsoft Azure', icon: '/azure.png' },
-  linux: { name: 'Linux Administration', icon: '/linux.png' },
-  git: { name: 'Git', icon: '/git.png' },
-  flask: { name: 'Flask', icon: '/flask.png' },
-  postgresql: { name: 'PostgreSQL', icon: '/postgresql.png' },
-  tailwind: { name: 'Tailwind CSS', icon: '/tailwind.svg' },
-  vercel: { name: 'Vercel', icon: '/vercel.png' },
-  django: { name: 'Django', icon: '/django.png' },
-  streamlit: { name: 'Streamlit', icon: '/streamlit.png' },
-  celery: { name: 'Celery', icon: '/celery.png' },
-  redis: { name: 'Redis', icon: '/redis.svg' },
-}
-
-let workCards = [
-  {
-    label: 'Veermata Jijabai College of Engineering (VJTI), Mumbai',
-    title: 'NLP Research Intern',
-    duration: 'May 2025 - July 2025',
-    description: [
-      'Created a Marathi Grammar Error Correction (GEC) system by fine-tuning IndicBART on 2.5M+ tokens from the L3Cube-MahaCorpus, improving baseline accuracy by 15%.',
-      ' Developed a Python post-processing pipeline that reduced false positive generations by 35% using Levenshtein distance logic, processing 500+ sentences per minute.',
-    ],
-    techstack: ['Python', 'IndicBART', 'Stanza', 'L3Cube', 'PyTorch', 'Hugging Face'],
-    image: '/vjti.png',
-    github: '',
-    live: '',
-  },
-  {
-    label: 'Microsoft Learn Students’ Club at WCE, Sangli',
-    title: 'Ass. Cloud Coordinator',
-    duration: 'August 2025 - Present',
-    description: [
-      'Facilitated technical workshops on Microsoft Azure, guiding 50+ students through Virtual Machine deployment and cloud resource management.',
-      'Collaboratively developed and deployed a Django-based website on Microsoft Azure.',
-    ],
-    techstack: ['Python', 'IndicBART', 'Stanza', 'L3Cube', 'PyTorch', 'Hugging Face'],
-    image: '/wce_mlsc.png',
-    github: '',
-    live: '',
-  },
-]
-
-let cp_accounts = [
-  {
-    label: 'Codeforces',
-    icon: '/codeforces.svg',
-    route: 'https://codeforces.com/profile/ramacharya06',
-  },
-  {
-    label: 'CodeChef',
-    icon: '/codechef.svg',
-    route: 'https://www.codechef.com/users/ramacharya06',
-  },
-  { label: 'Leetcode', icon: '/leetcode.svg', route: 'https://www.leetcode.com/u/ramacharya06' },
-]
-
-let education = [
-  {
-    college: 'IIT Madras (Online)',
-    course: 'Bachelor of Science in Data Science',
-    duration: '2024 – Present',
-    score: '9.45 CGPA',
-    image: '/iitm.svg',
-  },
-  {
-    college: 'Walchand College of Engineering, Sangli',
-    course: 'B.Tech in Information Technology',
-    duration: '2024 – Expected 2028',
-    score: '9.65 CGPA',
-    image: '/wcoe.png',
-  },
-]
+const description = ref(PROFILE_DESCRIPTION)
+const contactLinks = CONTACT_LINKS
+const projectcards = PROJECT_CARDS
+const techstack = TECH_STACK
+const workCards = WORK_CARDS
+const cp_accounts = CP_ACCOUNTS
+const education = EDUCATION
 </script>
 <template>
   <!-- Profile Hero Session -->
   <div class="w-full max-w-4xl min-w-[250px] mx-auto flex p-4 flex-col @container">
     <div class="flex justify-between items-end @sm:my-16 @max-sm:block">
       <Avatar :image="logo" shape="circle" size="large"
-        class="p-2 w-50 h-50 min-w-50 min-h-50 rounded-bg overflow-hidden border-2 border-black dark:border-gray-600"
+        class="p-2 w-50 h-50 min-w-50 min-h-50 rounded-bg overflow-hidden border-2 border-black dark:border-gray-600 bg-zinc-100 dark:bg-zinc-800"
         non-selectable />
       <nav>
         <ul class="flex @max-sm:p-3">
@@ -194,7 +96,7 @@ let education = [
     <!-- Project -->
     <div id="projects" class="flex justify-center items-center m-8 flex-col scroll-mt-28">
       <Title label="My Projects" />
-      <div class="flex @md:overflow-x-scroll w-full @max-lg:flex-col jusify-center items-center">
+      <div class="flex @md:overflow-x-scroll w-full @max-lg:flex-col justify-center items-center">
         <Card v-for="card in projectcards" :key="card.label" :github="card.github" :live="card.live" :label="card.label"
           :widthClass="card.widthClass" :techstack="card.techstack">
           <template #image>
@@ -279,12 +181,12 @@ let education = [
         <div class="flex justify-center items-center m-8 flex-col gap-4 @max-md:w-[100vw] @max-md:m-0">
           <div class="flex flex-wrap gap-4 justify-center">
             <a v-for="link in contactLinks" :key="link.label" :href="link.route" target="_blank"
-              rel="noopener noreferrer">
-              <Button
-                class="hover:scale-[1.05] hover:text-zinc-700 dark:hover:text-zinc-200 transition-transform @max-md:text-xs"
-                :label="link.label" :icon="link.icon" severity="secondary" rounded outlined />
-            </a>
-          </div>
+            rel="noopener noreferrer">
+            <Button
+            class="hover:scale-[1.05] hover:text-zinc-700 dark:hover:text-zinc-200 transition-transform @max-md:text-xs"
+            :label="link.label" :icon="link.icon" severity="secondary" rounded outlined />
+          </a>
+        </div>
           <div class="flex flex-wrap gap-4 justify-center">
             <a v-for="link in cp_accounts" :key="link.label" :href="link.route" target="_blank"
               rel="noopener noreferrer">
