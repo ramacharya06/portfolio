@@ -6,14 +6,14 @@ import { SpeedInsights } from '@vercel/speed-insights/vue'
 </script>
 
 <template>
-  <div id="app">
-    <Navbar class="sticky top-0 z-100" />
-    <main class="container-fluid p-0 transition-all transition-[0.5s]">
-      <RouterView />
-    </main>
-  </div>
-  <Footer />
-  <SpeedInsights />
+    <div id="app">
+        <Navbar class="sticky top-0 z-100" />
+        <main class="container-fluid p-0 transition-all transition-[0.5s]">
+            <RouterView />
+        </main>
+    </div>
+    <Footer />
+    <SpeedInsights />
 </template>
 
 <style scoped></style>

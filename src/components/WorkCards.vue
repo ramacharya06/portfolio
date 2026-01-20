@@ -19,7 +19,6 @@ defineProps({
         type: String,
         default: '',
     },
-    
 })
 
 const isExpanded = ref(false)
