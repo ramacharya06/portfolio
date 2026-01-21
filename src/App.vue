@@ -3,6 +3,7 @@ import Navbar from './components/NavBar.vue'
 import { RouterView } from 'vue-router'
 import Footer from './components/Footer.vue'
 import { SpeedInsights } from '@vercel/speed-insights/vue'
+import { Analytics } from '@vercel/analytics/vue'
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import { SpeedInsights } from '@vercel/speed-insights/vue'
     </div>
     <Footer />
     <SpeedInsights />
+    <Analytics />
 </template>
 
 <style scoped></style>
