@@ -37,3 +37,5 @@ __screenshots__/
 
 GEMINI.md 
 
+.vercel
+.env*.local

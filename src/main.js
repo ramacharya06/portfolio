@@ -6,6 +6,9 @@ import Aura from '@primeuix/themes/aura'
 import { definePreset } from '@primeuix/themes'
 import 'primeicons/primeicons.css'
 import './style.css'
+import { inject } from '@vercel/analytics'
+
+inject()
 
 const app = createApp(App)
 
