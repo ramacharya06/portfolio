@@ -77,6 +77,11 @@ const isExpanded = ref(false)
 </template>
 
 <style scoped>
+.card {
+  transition: border-color 0.3s ease;
+  border-width: 2px;
+}
+
 .card :deep(img) {
   transition: transform 0.3s ease;
   transform-origin: center center;
