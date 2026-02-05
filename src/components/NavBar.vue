@@ -6,7 +6,7 @@ import { ref, onMounted } from 'vue'
 import { useTheme } from '../composables/useTheme'
 import { computed } from 'vue'
 
-const logo = computed(() => (isDark.value ? '/logo-dark.png' : '/logo.png'))
+const logo = computed(() => (isDark.value ? '/misc/logo-dark.png' : '/misc/logo.png'))
 
 const items = ref([
     { label: 'Projects', icon: 'pi pi-github', route: '#projects' },

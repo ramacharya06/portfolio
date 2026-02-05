@@ -20,7 +20,7 @@ import { useTheme } from '../composables/useTheme'
 
 const { isDark } = useTheme()
 
-const logo = computed(() => (isDark.value ? '/logo-dark.png' : '/logo.png'))
+const logo = computed(() => (isDark.value ? '/misc/logo-dark.png' : '/misc/logo.png'))
 
 const text = ref(PROFILE_HERO_TITLES[0])
 let intervalId = null

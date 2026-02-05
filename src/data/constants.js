@@ -16,7 +16,7 @@ export const PROJECT_CARDS = [
         live: 'https://credit-risk-predictor-lrhp.streamlit.app/',
         title: 'Credit Risk Predictor',
         widthClass: 'w-100',
-        image: '/credit_risk_prediction_system.png',
+        image: '/project/credit_risk_prediction_system.png',
         description:
             'A machine learning application that predicts credit risk and loan default probability using Random Forest Classifier.',
         techstack: [
@@ -33,7 +33,7 @@ export const PROJECT_CARDS = [
         github: 'https://github.com/ramacharya06/SaveIt',
         title: 'Save It',
         widthClass: 'w-100',
-        image: '/save-it.png',
+        image: '/project/save-it.png',
         description:
             'A versatile utility that allows you to download images and other files from the internet. It provides both a Command-Line Interface (CLI) and a modern Web Interface.',
         techstack: ['Python', 'FastAPI', 'Vue.js', 'Html', 'CSS', 'JS'],
@@ -41,28 +41,28 @@ export const PROJECT_CARDS = [
 ]
 
 export const TECH_STACK = {
-    python: { name: 'Python', icon: '/python.png' },
-    django: { name: 'Django', icon: '/django.png' },
-    fastapi: { name: 'FastAPI', icon: '/fastapi.png' },
-    vue: { name: 'Vue.js', icon: '/vue.png' },
-    postgresql: { name: 'PostgreSQL', icon: '/postgresql.png' },
-    azure: { name: 'Microsoft Azure', icon: '/azure.png' },
-    js: { name: 'JavaScript', icon: '/js.png' },
-    redis: { name: 'Redis', icon: '/redis.svg' },
-    celery: { name: 'Celery', icon: '/celery.png' },
-    numpy: { name: 'Numpy', icon: '/numpy.svg' },
-    pandas: { name: 'Pandas', icon: '/pandas.svg' },
-    scikit_learn: { name: 'Scikit-learn', icon: '/scikit-learn.svg' },
-    matplotlib: { name: 'Matplotlib', icon: '/matplotlib.svg' },
-    streamlit: { name: 'Streamlit', icon: '/streamlit.png' },
-    cpp: { name: 'C++', icon: '/cpp.png' },
-    linux: { name: 'Linux', icon: '/linux.png' },
-    git: { name: 'Git', icon: '/git.png' },
-    tailwind: { name: 'Tailwind CSS', icon: '/tailwind.svg' },
-    flask: { name: 'Flask', icon: '/flask.png' },
-    html: { name: 'Html', icon: '/html.png' },
-    css: { name: 'CSS', icon: '/css.png' },
-    vercel: { name: 'Vercel', icon: '/vercel.png' },
+    python: { name: 'Python', icon: '/techstack/python.png' },
+    django: { name: 'Django', icon: '/techstack/django.png' },
+    fastapi: { name: 'FastAPI', icon: '/techstack/fastapi.png' },
+    vue: { name: 'Vue.js', icon: '/techstack/vue.png' },
+    postgresql: { name: 'PostgreSQL', icon: '/techstack/postgresql.png' },
+    azure: { name: 'Microsoft Azure', icon: '/techstack/azure.png' },
+    js: { name: 'JavaScript', icon: '/techstack/js.png' },
+    redis: { name: 'Redis', icon: '/techstack/redis.svg' },
+    celery: { name: 'Celery', icon: '/techstack/celery.png' },
+    numpy: { name: 'Numpy', icon: '/techstack/numpy.svg' },
+    pandas: { name: 'Pandas', icon: '/techstack/pandas.svg' },
+    scikit_learn: { name: 'Scikit-learn', icon: '/techstack/scikit-learn.svg' },
+    matplotlib: { name: 'Matplotlib', icon: '/techstack/matplotlib.svg' },
+    streamlit: { name: 'Streamlit', icon: '/techstack/streamlit.png' },
+    cpp: { name: 'C++', icon: '/techstack/cpp.png' },
+    linux: { name: 'Linux', icon: '/techstack/linux.png' },
+    git: { name: 'Git', icon: '/techstack/git.png' },
+    tailwind: { name: 'Tailwind CSS', icon: '/techstack/tailwind.svg' },
+    flask: { name: 'Flask', icon: '/techstack/flask.png' },
+    html: { name: 'Html', icon: '/techstack/html.png' },
+    css: { name: 'CSS', icon: '/techstack/css.png' },
+    vercel: { name: 'Vercel', icon: '/techstack/vercel.png' },
 }
 
 export const WORK_CARDS = [
@@ -75,7 +75,7 @@ export const WORK_CARDS = [
             ' Developed a Python post-processing pipeline that reduced false positive generations by 35% using Levenshtein distance logic, processing 500+ sentences per minute.',
         ],
         techstack: ['Python', 'IndicBART', 'Stanza', 'L3Cube', 'PyTorch', 'Hugging Face'],
-        image: '/vjti.png',
+        image: '/experience/vjti.png',
         github: '',
         live: '',
     },
@@ -87,8 +87,8 @@ export const WORK_CARDS = [
             'Facilitated technical workshops on Microsoft Azure, guiding 50+ students through Virtual Machine deployment and cloud resource management.',
             'Collaboratively developed and deployed a Django-based website on Microsoft Azure.',
         ],
-        techstack: ['Python', 'IndicBART', 'Stanza', 'L3Cube', 'PyTorch', 'Hugging Face'],
-        image: '/wce_mlsc.png',
+        techstack: ['Python', 'Django', 'Microsoft Azure', 'Git'],
+        image: '/experience/wce_mlsc.png',
         github: '',
         live: '',
     },
@@ -97,15 +97,15 @@ export const WORK_CARDS = [
 export const CP_ACCOUNTS = [
     {
         label: 'Codeforces',
-        icon: '/codeforces.svg',
+        icon: '/socials/codeforces.svg',
         route: 'https://codeforces.com/profile/ramacharya06',
     },
     {
         label: 'CodeChef',
-        icon: '/codechef.svg',
+        icon: '/socials/codechef.svg',
         route: 'https://www.codechef.com/users/ramacharya06',
     },
-    { label: 'Leetcode', icon: '/leetcode.svg', route: 'https://www.leetcode.com/u/ramacharya06' },
+    { label: 'Leetcode', icon: '/socials/leetcode.svg', route: 'https://www.leetcode.com/u/ramacharya06' },
 ]
 
 export const EDUCATION = [
@@ -114,13 +114,13 @@ export const EDUCATION = [
         course: 'Bachelor of Science in Data Science',
         duration: '2024 – Present',
         score: '9.45 CGPA',
-        image: '/iitm.svg',
+        image: '/education/iitm.svg',
     },
     {
         college: 'Walchand College of Engineering, Sangli',
         course: 'B.Tech in Information Technology',
         duration: '2024 – Expected 2028',
         score: '9.65 CGPA',
-        image: '/wcoe.png',
+        image: '/education/wcoe.png',
     },
 ]
