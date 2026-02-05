@@ -7,6 +7,7 @@ import { definePreset } from '@primeuix/themes'
 import 'primeicons/primeicons.css'
 import './style.css'
 import { inject } from '@vercel/analytics'
+import LenisVue from 'lenis/vue'
 
 inject()
 
@@ -77,5 +78,6 @@ app.use(PrimeVue, {
 })
 
 app.use(router)
+app.use(LenisVue)
 
 app.mount('#app')
