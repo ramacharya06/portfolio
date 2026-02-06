@@ -81,7 +81,7 @@ export const WORK_CARDS = [
     },
     {
         label: 'Microsoft Learn Students’ Club at WCE, Sangli',
-        title: 'Ass. Cloud Coordinator',
+        title: 'Asst. Cloud Coordinator',
         duration: 'August 2025 - Present',
         description: [
             'Facilitated technical workshops on Microsoft Azure, guiding 50+ students through Virtual Machine deployment and cloud resource management.',
